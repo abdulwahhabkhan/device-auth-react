@@ -11,12 +11,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.2', '8.3', '8.4']
-        laravel: ['11.*', '12.*', '13.*']
-        exclude:
-          - php: '8.2'
-            laravel: '13.*'
-    name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
+        php: ['8.3', '8.4', '8.5']
+        stability: [prefer-lowest, prefer-stable]
+    name: PHP ${{ matrix.php }} / Laravel 13 / ${{ matrix.stability }}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,17 +23,27 @@ jobs:
           extensions: openssl, pdo_sqlite
           coverage: none
 
-      # The path repository only exists in the monorepo checkout; CI uses Packagist.
-      - name: Use the published core package
-        run: composer config --unset repositories.0
-
       - name: Install dependencies
-        run: |
-          composer require "illuminate/support:${{ matrix.laravel }}" --no-update --no-interaction
-          composer update --prefer-dist --no-interaction --no-progress
+        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
 
-      - name: Lint, refactor check, static analysis, tests
-        run: composer test
+      - name: Tests
+        run: composer test:unit
+
+  quality:
+    runs-on: ubuntu-latest
+    name: Pint, Rector, PHPStan
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - run: composer update --prefer-dist --no-interaction --no-progress
+      - run: composer test:lint
+      - run: composer test:refactor
+      - run: composer test:types
 
   typescript:
     runs-on: ubuntu-latest

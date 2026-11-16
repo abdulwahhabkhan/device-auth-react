@@ -6,7 +6,7 @@ The core package holds all the logic (actions, routes, middleware, WebAuthn). Th
 
 ## Requirements
 
-- PHP 8.2+, Laravel 11, 12 or 13
+- PHP 8.3+, Laravel 13
 - `abdulwahhabkhan/device-auth` ^0.1
 - Inertia (Laravel adapter 2 or 3) with React 18/19, `@inertiajs/react` and Tailwind CSS
 - https (or `localhost` during development), because WebAuthn requires a secure context
@@ -107,6 +107,15 @@ npm run format         # prettier
 ```
 
 During development the core is linked from `../laravel-device-auth` through a Composer path repository.
+
+### Developing against a local core
+
+The package installs `abdulwahhabkhan/device-auth` from Packagist. To work on both side by side, point Composer at your checkout (don't commit this):
+
+```bash
+composer config repositories.core '{"type": "path", "url": "../laravel-device-auth", "options": {"versions": {"abdulwahhabkhan/device-auth": "0.2.0"}}}'
+composer update abdulwahhabkhan/device-auth
+```
 
 ## License
 

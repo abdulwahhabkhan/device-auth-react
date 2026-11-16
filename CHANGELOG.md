@@ -3,6 +3,13 @@
 All notable changes to `abdulwahhabkhan/device-auth-react` are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.2.0] - 2026-11-16
+
+### Changed (breaking)
+- Requires **Laravel 13**, **PHP 8.3+** and `abdulwahhabkhan/device-auth` ^0.2.
+- Requires `laravel/framework` instead of individual `illuminate/*` packages.
+- `composer.json` no longer carries a path repository to the core; CI and installs use Packagist.
+
 ## [0.1.0] - 2026-11-15
 
 ### Added

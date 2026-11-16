@@ -11,32 +11,18 @@
             "homepage": "https://github.com/abdulwahhabkhan"
         }
     ],
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../laravel-device-auth",
-            "options": {
-                "symlink": true,
-                "versions": {
-                    "abdulwahhabkhan/device-auth": "0.1.x-dev"
-                }
-            }
-        }
-    ],
     "require": {
-        "php": "^8.2",
-        "abdulwahhabkhan/device-auth": "^0.1",
-        "illuminate/console": "^11.0|^12.0|^13.0",
-        "illuminate/http": "^11.0|^12.0|^13.0",
-        "illuminate/support": "^11.0|^12.0|^13.0",
-        "inertiajs/inertia-laravel": "^2.0|^3.0"
+        "php": "^8.3",
+        "abdulwahhabkhan/device-auth": "^0.2",
+        "inertiajs/inertia-laravel": "^2.0|^3.0",
+        "laravel/framework": "^13.0"
     },
     "require-dev": {
         "driftingly/rector-laravel": "^2.0",
         "larastan/larastan": "^3.0",
         "laravel/pint": "^1.18",
-        "orchestra/testbench": "^9.0|^10.0|^11.0",
-        "phpunit/phpunit": "^11.0|^12.0",
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^12.0",
         "rector/rector": "^2.0"
     },
     "autoload": {
@@ -73,6 +59,6 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
