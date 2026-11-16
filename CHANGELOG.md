@@ -3,6 +3,13 @@
 All notable changes to `abdulwahhabkhan/device-auth-react` are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.2.1] - 2026-11-16
+
+### Documentation
+- README requires `abdulwahhabkhan/device-auth` ^0.2 (it said ^0.1), and says that `device-auth:install` no longer publishes migrations.
+- Removed the note that the core is linked through a Composer path repository; it installs from Packagist.
+- README says that devices prove themselves with passkeys (WebAuthn).
+
 ## [0.2.0] - 2026-11-16
 
 ### Changed (breaking)
