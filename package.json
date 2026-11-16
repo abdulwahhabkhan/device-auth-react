@@ -1,0 +1,21 @@
+{
+    "name": "@abdulwahhabkhan/device-auth-react",
+    "private": true,
+    "description": "Type-checking and formatting for the device-auth React pages (published into your app; not an npm package).",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "types": "tsc --noEmit",
+        "format": "prettier --write resources/js",
+        "format:check": "prettier --check resources/js"
+    },
+    "devDependencies": {
+        "@inertiajs/react": "^3.0.0",
+        "@types/react": "^19.2.0",
+        "@types/react-dom": "^19.2.0",
+        "prettier": "^3.4.2",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "typescript": "^5.7.2"
+    }
+}

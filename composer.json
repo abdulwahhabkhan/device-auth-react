@@ -1,0 +1,78 @@
+{
+    "name": "abdulwahhabkhan/device-auth-react",
+    "description": "Inertia + React pages for abdulwahhabkhan/device-auth: device verification, confirmation and the admin review screens.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "webauthn", "passkeys", "device", "2fa", "inertia", "react"],
+    "homepage": "https://github.com/abdulwahhabkhan/device-auth-react",
+    "authors": [
+        {
+            "name": "Abdul Wahhab Khan",
+            "homepage": "https://github.com/abdulwahhabkhan"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../laravel-device-auth",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "abdulwahhabkhan/device-auth": "0.1.x-dev"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "abdulwahhabkhan/device-auth": "^0.1",
+        "illuminate/console": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "inertiajs/inertia-laravel": "^2.0|^3.0"
+    },
+    "require-dev": {
+        "driftingly/rector-laravel": "^2.0",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "phpunit/phpunit": "^11.0|^12.0",
+        "rector/rector": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AbdulWahhabKhan\\DeviceAuth\\React\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AbdulWahhabKhan\\DeviceAuth\\React\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AbdulWahhabKhan\\DeviceAuth\\React\\DeviceAuthReactServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "lint": "pint",
+        "refactor": "rector",
+        "test:lint": "pint --test",
+        "test:refactor": "rector --dry-run",
+        "test:types": "phpstan analyse --memory-limit=1G",
+        "test:unit": "phpunit",
+        "test": [
+            "@test:lint",
+            "@test:refactor",
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
