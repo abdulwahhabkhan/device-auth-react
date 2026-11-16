@@ -1,13 +1,13 @@
 # abdulwahhabkhan/device-auth-react
 
-Inertia + React pages for [`abdulwahhabkhan/device-auth`](https://github.com/abdulwahhabkhan/device-auth): the "verify this device" screen shown after the password, the device confirmation screen for sensitive actions, and the administrator's device review screens.
+Inertia + React pages for [`abdulwahhabkhan/device-auth`](https://github.com/abdulwahhabkhan/device-auth): the "verify this device" screen shown after the password, the device confirmation screen for sensitive actions, and the administrator's device review screens. Each device proves itself with a passkey (WebAuthn) stored on the device.
 
 The core package holds all the logic (actions, routes, middleware, WebAuthn). This package only renders its pages with Inertia and shares the device-auth state with every page.
 
 ## Requirements
 
 - PHP 8.3+, Laravel 13
-- `abdulwahhabkhan/device-auth` ^0.1
+- `abdulwahhabkhan/device-auth` ^0.2
 - Inertia (Laravel adapter 2 or 3) with React 18/19, `@inertiajs/react` and Tailwind CSS
 - https (or `localhost` during development), because WebAuthn requires a secure context
 
@@ -15,7 +15,7 @@ The core package holds all the logic (actions, routes, middleware, WebAuthn). Th
 
 ```bash
 composer require abdulwahhabkhan/device-auth abdulwahhabkhan/device-auth-react
-php artisan device-auth:install         # core: config, migrations, actions, service provider
+php artisan device-auth:install         # core: config, actions, service provider
 php artisan device-auth:react-install   # this package: React pages and config
 php artisan migrate
 npm run build
@@ -105,8 +105,6 @@ npm install
 npm run types          # tsc --noEmit (strict, noUncheckedIndexedAccess)
 npm run format         # prettier
 ```
-
-During development the core is linked from `../laravel-device-auth` through a Composer path repository.
 
 ### Developing against a local core
 
